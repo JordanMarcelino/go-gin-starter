@@ -41,5 +41,5 @@ func parseConfigPath() string {
 		panic(err)
 	}
 
-	return filepath.Join(wd, "configs", "envs")
+	return filepath.Join(wd)
 }

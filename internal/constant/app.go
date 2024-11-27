@@ -12,6 +12,10 @@ const (
 )
 
 const (
+	ResponseSuccessMessage = "success"
+)
+
+const (
 	DEFAULT_LIMIT = 10
 	DEFAULT_PAGE  = 1
 )
