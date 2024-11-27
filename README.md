@@ -1,43 +1,55 @@
-# Golang Gin Starter & Boilerplate
+# Golang Gin Starter & Boilerplate 🚀
 
-Golang with Gin Framework Starter implementing clean architecture
+A robust and scalable starter template for building backend applications using Golang and the Gin framework, designed with clean architecture principles.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
--   [Golang](https://github.com/golang/go) v1.23
--   [PostgreSQL](https://github.com/postgres/postgres) (Database)
+- ⚙️ **Golang**: [v1.23](https://github.com/golang/go) – Efficient, statically typed, compiled language.
+- 🗄️ **PostgreSQL**: [PostgreSQL](https://github.com/postgres/postgres) – Reliable and powerful SQL database.
 
-## Framework & Library
+## 📚 Framework & Libraries
 
--   [Gin](https://gin-gonic.com/) (HTTP Framework)
--   [Pgx](https://github.com/jackc/pgx) (Postgres Driver)
--   [Viper](https://github.com/spf13/viper) (Configuration)
--   [Golang Migrate](https://github.com/golang-migrate/migrate) (Database Migration)
--   [Zerolog](https://github.com/rs/zerolog) (Logger)
--   [Air](https://github.com/air-verse/air) (Hot Reload)
+- 🌐 **Gin**: [Gin](https://gin-gonic.com/) – Fast and flexible HTTP web framework.
+- 🐘 **Pgx**: [Pgx](https://github.com/jackc/pgx) – High-performance Postgres driver.
+- ⚙️ **Viper**: [Viper](https://github.com/spf13/viper) – Powerful configuration management.
+- 🗃️ **Golang Migrate**: [Golang Migrate](https://github.com/golang-migrate/migrate) – Database migrations made easy.
+- 📝 **Zerolog**: [Zerolog](https://github.com/rs/zerolog) – Blazing fast, structured logging.
+- 🔄 **Air**: [Air](https://github.com/air-verse/air) – Live reload for Go apps.
 
-## How To Run / Install on Your Local Machine
+## 🚀 Getting Started
 
---> Clone the repository using command bellow:
+### 1️⃣ Clone the Repository
+
+Clone the repository using the command below:
 
 ```bash
 git clone https://github.com/JordanMarcelino/go-gin-starter
 ```
 
---> Move into the directory :
+Or you can also use this repository as template
+
+### 2️⃣ Move into the Directory
+
+Navigate to the project directory:
 
 ```bash
 cd go-gin-starter
 ```
 
---> Run local server with hot reload :
+### 3️⃣ Run the Local Server with Hot Reload
+
+Use Air to start the development server with hot reload:
 
 ```bash
 air
 ```
 
---> Build & run docker container :
+### 4️⃣ Build & Run the Docker Container
+
+Deploy your application using Docker Compose:
 
 ```bash
-docker compose -up -d --build
+docker compose up -d --build
 ```
+
+Happy coding! 🧑‍💻🎉
