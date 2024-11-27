@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN go mod download && CGO_ENABLED=0 GOOS=linux go build -v -o /main ./cmd/api/main.go
+RUN go mod download && CGO_ENABLED=0 GOOS=linux go build -tags="sonic avx" -v -o /main ./cmd/api/main.go
 
 FROM alpine:latest AS build-release-stage
 
@@ -15,4 +15,4 @@ COPY --from=build-stage /app/.env /.env
 
 EXPOSE 8000
 
-ENTRYPOINT [ "/main"]
+ENTRYPOINT [ "/main", "serve-all"]
