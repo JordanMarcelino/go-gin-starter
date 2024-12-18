@@ -1,14 +1,13 @@
 package provider
 
 import (
-	"database/sql"
-
 	"github.com/JordanMarcelino/go-gin-starter/internal/config"
 	"github.com/JordanMarcelino/go-gin-starter/internal/database"
+	"github.com/jmoiron/sqlx"
 )
 
 var (
-	db *sql.DB
+	db *sqlx.DB
 )
 
 func InitGlobal(cfg *config.Config) {

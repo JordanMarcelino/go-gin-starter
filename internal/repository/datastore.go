@@ -3,12 +3,16 @@ package repository
 import (
 	"context"
 	"database/sql"
+
+	"github.com/jmoiron/sqlx"
 )
 
 type DBTX interface {
 	ExecContext(context.Context, string, ...interface{}) (sql.Result, error)
 	QueryContext(context.Context, string, ...interface{}) (*sql.Rows, error)
+	QueryxContext(context.Context, string, ...interface{}) (*sqlx.Rows, error)
 	QueryRowContext(context.Context, string, ...interface{}) *sql.Row
+	QueryRowxContext(context.Context, string, ...interface{}) *sqlx.Row
 }
 
 type DataStore interface {
@@ -16,11 +20,11 @@ type DataStore interface {
 }
 
 type dataStore struct {
-	conn *sql.DB
+	conn *sqlx.DB
 	db   DBTX
 }
 
-func NewDataStore(db *sql.DB) DataStore {
+func NewDataStore(db *sqlx.DB) DataStore {
 	return &dataStore{
 		conn: db,
 		db:   db,
@@ -28,7 +32,7 @@ func NewDataStore(db *sql.DB) DataStore {
 }
 
 func (s *dataStore) Atomic(ctx context.Context, fn func(DataStore) error) error {
-	tx, err := s.conn.BeginTx(ctx, &sql.TxOptions{})
+	tx, err := s.conn.BeginTxx(ctx, &sql.TxOptions{})
 	if err != nil {
 		return err
 	}

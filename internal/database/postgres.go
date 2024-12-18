@@ -1,16 +1,16 @@
 package database
 
 import (
-	"database/sql"
 	"fmt"
 	"time"
 
 	"github.com/JordanMarcelino/go-gin-starter/internal/config"
 	"github.com/JordanMarcelino/go-gin-starter/internal/pkg/logger"
 	_ "github.com/jackc/pgx/v5/stdlib"
+	"github.com/jmoiron/sqlx"
 )
 
-func InitPostgres(cfg *config.Config) *sql.DB {
+func InitPostgres(cfg *config.Config) *sqlx.DB {
 	dbCfg := cfg.Database
 
 	dsn := fmt.Sprintf(
@@ -23,12 +23,7 @@ func InitPostgres(cfg *config.Config) *sql.DB {
 		dbCfg.Sslmode,
 	)
 
-	db, err := sql.Open("pgx", dsn)
-	if err != nil {
-		logger.Log.Fatalf("error initializing database: %v", err)
-	}
-
-	err = db.Ping()
+	db, err := sqlx.Connect("pgx", dsn)
 	if err != nil {
 		logger.Log.Fatalf("error connecting to database: %v", err)
 	}
