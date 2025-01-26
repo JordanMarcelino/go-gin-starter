@@ -1,4 +1,4 @@
-include ${CURDIR}/configs/envs/.env
+include ${CURDIR}/.env
 
 test:
 	@go test -v -cover ${CURDIR}/...
